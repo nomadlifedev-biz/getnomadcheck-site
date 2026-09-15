@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your account and data — Nomad Check</title>
+<meta name="description" content="Request deletion of your Nomad Check account and data without reinstalling the app.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="/">Nomad Check</a>
+  </header>
+
+  <!-- DRAFT-BANNER: delete this block when the documents are final -->
+  <div class="draft">
+    <strong>Draft — not yet in effect</strong>
+    Items marked in red are not finalised. This page is being prepared
+    before the app's first release.
+  </div>
+  <!-- /DRAFT-BANNER -->
+
+  <h1>Delete your account and data</h1>
+  <p class="lede">
+    This page is for the <strong>Nomad Check</strong> Android app, operated
+    by <span class="ph">{{LEGAL_ENTITY}}</span>. You can request deletion
+    here without reinstalling the app.
+  </p>
+
+  <div class="note">
+    We review requests once a week. After we confirm your request, we
+    normally process it at the next weekly review. We will email you if we
+    cannot complete it.
+  </div>
+
+  <fieldset>
+    <legend>Did you connect an email address or a Google account?</legend>
+    <label class="opt"><input type="radio" name="kind" value="email"> Yes, email</label>
+    <label class="opt"><input type="radio" name="kind" value="google"> Yes, Google</label>
+    <label class="opt"><input type="radio" name="kind" value="guest"> No — I used the app without connecting either</label>
+    <label class="opt"><input type="radio" name="kind" value="unsure"> I'm not sure</label>
+  </fieldset>
+
+  <!-- ---------- email ---------- -->
+  <div class="branch" id="b-email">
+    <h3>Deleting an account connected to an email address</h3>
+    <p>
+      Send us a message from any address, telling us the email address you
+      connected to Nomad Check.
+    </p>
+    <p>
+      We will then send a confirmation message <strong>to the address
+      connected to the account</strong> and ask you to reply to it. We do
+      this so that nobody else can delete your account.
+    </p>
+    <p>
+      Deletion removes your account and its profile, stay information,
+      plans, and travel history from our active database.
+    </p>
+    <a class="mailbtn" id="m-email" href="#">Email your request</a>
+    <p>
+      Please do not send passwords, sign-in links, identity documents, or
+      travel details. They cannot prove that an account is yours.
+    </p>
+  </div>
+
+  <!-- ---------- google ---------- -->
+  <div class="branch" id="b-google">
+    <h3>Deleting an account connected to Google</h3>
+    <p>
+      Send us a message telling us the Google account you used with Nomad
+      Check.
+    </p>
+    <p>
+      We are still building an automated way to confirm Google accounts on
+      this page. Until it is ready, we confirm these requests by email, and
+      there are cases where we may not be able to confirm that the account
+      is yours. If that happens we will tell you and we will not delete
+      anything.
+    </p>
+    <p>
+      Deletion removes your account and its profile, stay information,
+      plans, and travel history from our active database.
+    </p>
+    <a class="mailbtn" id="m-google" href="#">Email your request</a>
+    <p>
+      Please do not send passwords, sign-in links, identity documents, or
+      travel details.
+    </p>
+  </div>
+
+  <!-- ---------- guest ---------- -->
+  <div class="branch" id="b-guest">
+    <h3>If you used the app without connecting an account</h3>
+    <p>
+      The app uploads guest information, but we cannot match an email
+      request to those records.
+    </p>
+    <p>
+      If you never connected an email address or Google account, we cannot
+      identify which guest account and data to delete. Giving us a new email
+      address will not help us find those records, and neither will personal
+      or travel details.
+    </p>
+    <p>
+      <strong>If you still have the app installed</strong>, removing the app
+      from your device deletes the information stored on that device.
+    </p>
+    <p>You are welcome to contact us, but we may not be able to act on it.</p>
+    <a class="mailbtn" id="m-guest" href="#">Contact us</a>
+    <p>Contacting us does not mean your data has been deleted.</p>
+  </div>
+
+  <!-- ---------- unsure ---------- -->
+  <div class="branch" id="b-unsure">
+    <h3>If you are not sure</h3>
+    <p>
+      If you still have the app installed, open
+      <strong>Settings</strong> in Nomad Check. The account section shows
+      "Guest" if you never connected an account, and shows your email
+      address or Google account if you did.
+    </p>
+    <p>
+      If you no longer have the app, write to us and tell us what you
+      remember. If you ever received a sign-in email from us, the address
+      that received it is the one connected to your account.
+    </p>
+    <a class="mailbtn" id="m-unsure" href="#">Contact us</a>
+  </div>
+
+  <h2>What we cannot do through this page</h2>
+  <ul>
+    <li>We cannot remove copies stored on your own devices.</li>
+    <li>
+      The app creates a new guest account after an in-app account deletion
+      or sign-out. That new account does not carry your deleted account's
+      records.
+    </li>
+    <li>
+      Information about backups, service logs, and deletion-request records
+      is in our <a href="/privacy">Privacy Policy</a>.
+    </li>
+  </ul>
+
+  <h2>If you still have the app</h2>
+  <p>
+    If you connected an email address or Google account, you can delete your
+    account inside the app: <strong>Settings &rarr; Login and Security
+    &rarr; Delete my account</strong>. That is usually faster than a request
+    here.
+  </p>
+
+  <footer class="site">
+    <a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var CONTACT = '{{CONTACT_EMAIL}}';
+  var subjects = {
+    email:  'Nomad Check - delete my account (email sign-in)',
+    google: 'Nomad Check - delete my account (Google sign-in)',
+    guest:  'Nomad Check - guest data question',
+    unsure: 'Nomad Check - deletion request (not sure which account)'
+  };
+  var bodies = {
+    email:  'I would like my Nomad Check account and data deleted.%0D%0A%0D%0AThe email address connected to the account is:%0D%0A%0D%0A',
+    google: 'I would like my Nomad Check account and data deleted.%0D%0A%0D%0AThe Google account I used is:%0D%0A%0D%0A',
+    guest:  'I used Nomad Check without connecting an email address or Google account.%0D%0A%0D%0A',
+    unsure: 'I would like my Nomad Check account and data deleted, but I am not sure which account I used.%0D%0A%0D%0A'
+  };
+
+  Object.keys(subjects).forEach(function (k) {
+    var a = document.getElementById('m-' + k);
+    if (!a) return;
+    a.href = 'mailto:' + CONTACT +
+      '?subject=' + encodeURIComponent(subjects[k]) +
+      '&body=' + bodies[k];
+  });
+
+  var radios = document.querySelectorAll('input[name="kind"]');
+  radios.forEach(function (r) {
+    r.addEventListener('change', function () {
+      document.querySelectorAll('.branch').forEach(function (b) {
+        b.classList.remove('on');
+      });
+      var target = document.getElementById('b-' + r.value);
+      if (target) {
+        target.classList.add('on');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use — Nomad Check</title>
+<meta name="description" content="Terms governing use of the Nomad Check Android app.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="/">Nomad Check</a>
+  </header>
+
+  <!-- DRAFT-BANNER: delete this block when the documents are final -->
+  <div class="draft">
+    <strong>Draft — not yet in effect</strong>
+    Items marked in red are not finalised. This document is being prepared
+    before the app's first release.
+  </div>
+  <!-- /DRAFT-BANNER -->
+
+  <h1>Terms of Use</h1>
+  <p class="effective">Effective date: <span class="ph">{{EFFECTIVE_DATE}}</span></p>
+
+  <p>
+    These Terms govern your use of Nomad Check, operated by
+    <span class="ph">{{LEGAL_ENTITY}}</span>, a developer based in Taiwan.
+  </p>
+  <p>Contact: <span class="ph">{{CONTACT_EMAIL}}</span></p>
+
+  <h2>1. The service</h2>
+  <p>
+    Nomad Check is an Android app for Google Play. It provides stay-day
+    calculations, visa and compliance information, and health and emergency
+    information for people travelling between countries.
+  </p>
+  <p>The current version is free to use.</p>
+  <p>
+    The app provides information and calculations. It does not give legal or
+    medical advice. A result, countdown, checklist, or status in the app is
+    not an official decision about your permission to enter, stay, or work
+    in a country, or a medical assessment of your health.
+  </p>
+
+  <h2>2. Information quality and verification</h2>
+  <p>
+    Visa, compliance, health, and emergency information have different
+    levels of verification. We do not represent all information as verified,
+    complete, or current.
+  </p>
+  <p>Verification status as of <span class="ph">{{CONTENT_VERIFICATION_DATE}}</span>:</p>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Information category</th><th>Coverage and verification</th></tr>
+    <tr><td>Visa information</td><td><span class="ph">{{VISA_VERIFICATION_BREAKDOWN}}</span></td></tr>
+    <tr><td>Compliance information</td><td><span class="ph">{{COMPLIANCE_VERIFICATION_BREAKDOWN}}</span></td></tr>
+    <tr><td>Health information</td><td><span class="ph">{{HEALTH_VERIFICATION_BREAKDOWN}}</span></td></tr>
+    <tr><td>Emergency information</td><td><span class="ph">{{EMERGENCY_VERIFICATION_BREAKDOWN}}</span></td></tr>
+  </table>
+  </div>
+  <p>
+    What the verification levels mean and how the figures are counted:
+    <span class="ph">{{CONTENT_VERIFICATION_METHOD}}</span>.
+  </p>
+  <p>
+    Information may be outdated or incomplete. A source link does not
+    guarantee that every statement or calculation has been independently
+    checked against that source. A favourable result does not guarantee
+    entry, a visa, permission to work, or compliance with the rules that
+    apply to you.
+  </p>
+  <p>
+    If a calculation uses a stay limit you entered, its result reflects that
+    input. It does not verify that the limit is legally correct for you.
+  </p>
+  <p>
+    Health information is general information, not a diagnosis or treatment
+    recommendation. Emergency information is a reference, not a guarantee
+    that a listed contact or service is current or available.
+  </p>
+
+  <h2>3. Your responsibilities</h2>
+  <p>
+    You are responsible for the information you enter, including dates,
+    passport details, travel history, work circumstances, and any stay limit
+    you supply. Correct inaccurate information when you become aware of it.
+  </p>
+  <p>
+    Before relying on a result for a travel or work decision, check the
+    relevant official sources and requirements for your circumstances. The
+    responsible authorities determine your actual permission to enter, stay,
+    or work.
+  </p>
+  <p>
+    Keep your own records of travel dates, official permissions, and
+    deadlines. Do not rely on the app or its reminders as your only record
+    or warning.
+  </p>
+  <p>
+    For decisions about your health, obtain advice from a qualified
+    healthcare professional. In an emergency, contact the relevant emergency
+    services directly.
+  </p>
+  <p>
+    Use only accounts you are entitled to access. Protect access to your
+    device, email, and Google account. Avoid adding unnecessary personal
+    information about other people to notes.
+  </p>
+
+  <h2>4. Accounts and data</h2>
+  <p>
+    On a fresh online start, the app automatically creates an anonymous
+    Supabase account when it finds no existing session or recorded identity
+    and local storage can be read. This process does not wait for a button
+    tap or consent.
+  </p>
+  <p>
+    After initial setup, saved profile and travel information is uploaded
+    automatically, including before you link an email or Google account.
+    "Guest" does not mean that your information stays only on your device.
+  </p>
+  <p>
+    You can link an email or Google account. If you link Google while your
+    profile nickname is empty, the app saves your Google display name as
+    your nickname and uploads it with your profile.
+  </p>
+  <p>
+    Signing out leaves your profile and travel data on the device. Someone
+    else using that device can see retained information. Local content is
+    not separated by account, and a later guest edit may upload retained
+    information under a guest identity.
+  </p>
+  <p>
+    For a linked account, the deletion entry is
+    <strong>Settings &rarr; Login and Security &rarr; Delete my
+    account</strong>. The app sends a server deletion request before local
+    cleanup. If that request fails, local cleanup does not start. The
+    cleanup includes diagnostic copies of unreadable data, but complete
+    removal on Android and the deployed server's deletion scope have not
+    been verified.
+  </p>
+  <p>
+    Guests who have never linked an account cannot access that deletion
+    entry. You can submit a request at
+    <a href="/delete">getnomadcheck.com/delete</a>; that page explains what
+    we can and cannot identify.
+  </p>
+  <p>
+    A restoration failure screen can prevent access to account controls.
+    After a successful account-deletion flow, the identity process restarts
+    and may create a new anonymous account when connected.
+  </p>
+
+  <h2>5. Saving, synchronization, and availability</h2>
+  <p>
+    Saving on your device and synchronization with the server are separate
+    operations. Different parts of one change are uploaded separately. A
+    change can reach the server only in part.
+  </p>
+  <p>
+    Synchronization of future plans and stay history can remove server
+    records that are missing from the device's collection. It is not a
+    guarantee that all records from different devices will be combined.
+    Using the same account on multiple devices may overwrite or remove
+    records.
+  </p>
+  <p>
+    Signing in to an account that already has data replaces the guest
+    information on that device with the account's data. This cannot be
+    undone.
+  </p>
+  <p>
+    Local saving can fail without an on-screen warning. Unsaved changes may
+    be lost when the app closes. Restoration failures can also pause
+    editing. We do not guarantee uninterrupted access, successful
+    synchronization, or recovery of every record.
+  </p>
+
+  <h2>6. Limits on responsibility</h2>
+  <p>
+    We do not guarantee the accuracy or completeness of every result, or any
+    immigration, travel, work, or health outcome.
+  </p>
+  <p>
+    To the extent permitted by applicable law, we are not responsible for
+    losses caused by inaccurate information you enter or by a failure to
+    check applicable official requirements, where those losses are not
+    caused by our breach of duty.
+  </p>
+  <p>
+    These Terms do not exclude or limit responsibility for fraud, deliberate
+    misconduct, or any responsibility that applicable law does not allow us
+    to exclude or limit. They do not remove mandatory consumer or
+    data-protection rights. The information and synchronization limitations
+    above do not excuse us from obligations that the law places on us.
+  </p>
+
+  <h2>7. Governing law and disputes</h2>
+  <p>Governing law: <span class="ph">{{GOVERNING_LAW}}</span>.</p>
+  <p>
+    Dispute procedure and competent courts:
+    <span class="ph">{{DISPUTE_RESOLUTION_PROCESS_AND_FORUM}}</span>.
+  </p>
+  <p>
+    Any governing-law or dispute provision remains subject to mandatory
+    rights and protections that apply to you.
+  </p>
+
+  <h2>8. Changes to these Terms</h2>
+  <p>
+    How we will notify you of changes, when they take effect, and whether
+    acceptance is required:
+    <span class="ph">{{TERMS_CHANGE_NOTICE_AND_ACCEPTANCE_PROCESS}}</span>.
+  </p>
+
+  <h2>9. Contact</h2>
+  <p>
+    Operator: <span class="ph">{{LEGAL_ENTITY}}</span><br>
+    Location: Taiwan<br>
+    Contact: <span class="ph">{{CONTACT_EMAIL}}</span>
+  </p>
+
+  <footer class="site">
+    <a href="/">Home</a><a href="/privacy">Privacy</a><a href="/delete">Delete my data</a>
+  </footer>
+
+</div>
+</body>
+</html>

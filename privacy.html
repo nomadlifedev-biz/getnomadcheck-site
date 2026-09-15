@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Nomad Check</title>
+<meta name="description" content="How the Nomad Check Android app handles your information.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="/">Nomad Check</a>
+  </header>
+
+  <!-- DRAFT-BANNER: delete this block when the documents are final -->
+  <div class="draft">
+    <strong>Draft — not yet in effect</strong>
+    Items marked in red are not finalised. This document is being prepared
+    before the app's first release.
+  </div>
+  <!-- /DRAFT-BANNER -->
+
+  <h1>Privacy Policy</h1>
+  <p class="effective">Effective date: <span class="ph">{{EFFECTIVE_DATE}}</span></p>
+
+  <p>
+    Nomad Check is operated by <span class="ph">{{LEGAL_ENTITY}}</span>, a
+    developer based in Taiwan. This policy explains how the Nomad Check
+    Android app for Google Play handles your information.
+  </p>
+  <p>Privacy contact: <span class="ph">{{CONTACT_EMAIL}}</span></p>
+
+  <h2>1. Data collection starts before registration</h2>
+  <p>
+    On a fresh online start, the app automatically creates an anonymous
+    account with Supabase without waiting for you to tap a button or give
+    consent. This happens when no existing session or previous identity is
+    recorded and the app can read its local storage. An offline first start
+    does not create the account at that time.
+  </p>
+  <p>
+    "Anonymous" means that the account has not been linked to your email or
+    Google account. It still has a unique account identifier. Information
+    saved under it is not anonymized.
+  </p>
+  <p>
+    After you complete initial setup, the app automatically uploads your
+    saved information to Supabase. This includes your passport nationality,
+    current city, income range, employer country, and work and sleep
+    schedule when those details are present. You do not need to register or
+    link an account first.
+  </p>
+  <p>
+    Uploads can also happen when you reopen the app or return to it. If
+    information is already saved on your device, the app does not wait for
+    you to finish reading the privacy page before uploading it. Labels such
+    as "Guest" or "Not saved" do not mean that your information stays only
+    on your device.
+  </p>
+
+  <h2>2. Information we collect and store</h2>
+
+  <h3>Profile and setup answers</h3>
+  <p>
+    The app stores and uploads the following profile information when
+    present. Unanswered entries can also be sent as empty values.
+  </p>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Information</th><th>Details</th></tr>
+    <tr><td>Nickname or display name</td><td>The name saved in your profile. If this is empty when you link Google, the app copies your Google display name into it and uploads it.</td></tr>
+    <tr><td>Passport nationality</td><td>The nationality of the passport you select.</td></tr>
+    <tr><td>Passport expiry date</td><td>The expiry date you enter.</td></tr>
+    <tr><td>Current city and time zone</td><td>Your selected city and its time zone.</td></tr>
+    <tr><td>Age range</td><td>Your answer to the under-30 question shown in the Taiwan assessment flow.</td></tr>
+    <tr><td>Work arrangement</td><td>Your work type and work activities.</td></tr>
+    <tr><td>Employer information</td><td>Employer entries and employer country. Details included within each employer entry: <span class="ph">{{EMPLOYER_ENTRY_DETAILS}}</span>.</td></tr>
+    <tr><td>Assignment in your destination</td><td>Your answer about an employer assignment in the destination.</td></tr>
+    <tr><td>Freelance clients</td><td>Your client status and the countries where your clients are located.</td></tr>
+    <tr><td>Business information</td><td>Business entries and whether your business has customers in the destination. Details included within each business entry: <span class="ph">{{BUSINESS_ENTRY_DETAILS}}</span>.</td></tr>
+    <tr><td>Income</td><td>Your income range and the percentage recorded as independent of the destination.</td></tr>
+    <tr><td>Schedule</td><td>Your daily schedule information, work start and end times, and sleep start and end times. Further details included in the schedule entry: <span class="ph">{{SCHEDULE_ENTRY_DETAILS}}</span>.</td></tr>
+    <tr><td>Visa information</td><td>Your digital nomad visa status and visa expiry date.</td></tr>
+    <tr><td>Stay intentions</td><td>The route you select for planning your stay and your desired number of days.</td></tr>
+  </table>
+  </div>
+  <p>
+    The app uploads the full profile, together with references to the plan
+    you have selected as active and the plan you are considering, your
+    account identifier, and an update time.
+  </p>
+
+  <h3>Current stay, future plans, and stay history</h3>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Information</th><th>What is sent to Supabase</th></tr>
+    <tr><td>Current stay</td><td>The entire current-stay record, including visa-related information stored in that record. Full item-by-item description: <span class="ph">{{CURRENT_STAY_DATA_DETAILS}}</span>.</td></tr>
+    <tr><td>Future plans</td><td>Destination, destination time zone, planned arrival and departure dates, document checklist selections, and application status.</td></tr>
+    <tr><td>Stay history</td><td>Country, city, a reference to any linked plan, how the record was created, planned and actual start and end dates, your stated basis for entry, any manual status override, free-text notes, and creation, update, and manual-edit times.</td></tr>
+  </table>
+  </div>
+  <p>
+    Future plans and stay history use selected fields for upload. The
+    profile and current-stay record are uploaded in full. A visa detail
+    excluded from a future-plan upload can still be uploaded if it is also
+    stored in your profile or current stay.
+  </p>
+  <p>
+    Free-text notes are uploaded as part of stay history. Please avoid
+    entering unnecessary information about yourself or other people.
+  </p>
+
+  <h3>Account and sign-in information</h3>
+  <p>
+    The app stores an account identifier, a record of whether you have
+    linked an account, and sign-in session information on your device.
+    Session information includes credentials that keep the app signed in.
+  </p>
+  <p>
+    If you use email sign-in or add an email to your account, your email
+    address is sent to Supabase Auth to handle the sign-in email.
+  </p>
+  <p>
+    If you use Google, Google handles the authorization request. Google
+    identity information, including your email and display name, is stored
+    by Supabase and can be included in the session stored on your device.
+    When your profile nickname is empty, the app also saves and uploads your
+    Google display name as your nickname.
+  </p>
+
+  <h3>Additional information on your device</h3>
+  <p>
+    The app also stores city-clock selections, body-clock simulations,
+    country-specific health-document checklist selections, the last country
+    used for those checklists, reminder settings, dismissed notices, and
+    ignored-conflict records that include date snapshots. It keeps local
+    records of setup completion, saved-data versions, pending changes, and
+    recovery or synchronization state.
+  </p>
+  <p>
+    These local entries are separate from the profile, current-stay,
+    future-plan, and stay-history uploads described above. In particular,
+    ignored-conflict records do not have an app cloud-upload path.
+  </p>
+
+  <h3>Diagnostic copies of unreadable data</h3>
+  <p>
+    If certain saved profile or travel data cannot be read, the app copies
+    the original stored text, word for word, into a separate diagnostic
+    storage entry on the same device. This can include the entire profile
+    and its personal information.
+  </p>
+  <p>
+    The copy is created only if that diagnostic entry does not already
+    exist. It is not overwritten and has no automatic expiry. There is no
+    separate production-app button for clearing it.
+  </p>
+
+  <h2>3. Why the app handles information</h2>
+  <p>
+    The app uses account and session information to establish an identity,
+    handle sign-in, and associate cloud records with that identity. It
+    stores and synchronizes profile and travel records and retrieves them
+    during restoration. It stores reminder settings for local notification
+    scheduling. The diagnostic copy preserves the original text when a
+    stored record cannot be read.
+  </p>
+  <p>
+    The service provides stay-day calculations, visa and compliance
+    information, and health and emergency information. The specific uses and
+    necessity of each profile and assessment answer, including income,
+    employer and client details, age, and schedule information, are:
+    <span class="ph">{{PROFILE_AND_ASSESSMENT_DATA_PURPOSES}}</span>.
+  </p>
+  <p>
+    The grounds on which we process each category of personal information,
+    where required by the laws that apply, are:
+    <span class="ph">{{PROCESSING_LEGAL_BASES}}</span>.
+  </p>
+
+  <h2>4. Storage locations and service providers</h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Provider or location</th><th>Information and activity</th></tr>
+    <tr><td>Your device</td><td>Local profile and travel records, preferences, diagnostic copies, identifiers, and sign-in session information.</td></tr>
+    <tr><td>Supabase</td><td>Anonymous and linked accounts, authentication, profile and travel uploads, cloud retrieval, and account-deletion requests. Our project is in the Northeast Asia (Seoul), South Korea region.</td></tr>
+    <tr><td>Google sign-in</td><td>Authorization requests when you choose Google. Google returns identity information to Supabase.</td></tr>
+    <tr><td>Sign-in email provider</td><td>Email delivery triggered through Supabase Auth. The configured email provider and its processing location are <span class="ph">{{AUTH_EMAIL_PROVIDER_AND_LOCATION}}</span>.</td></tr>
+  </table>
+  </div>
+  <p>
+    The developer is based in Taiwan, the Supabase project is hosted in
+    South Korea, and users can be in other countries. Information sent to
+    that project crosses borders when your device is elsewhere. These
+    locations do not by themselves establish the legal safeguards for a
+    transfer.
+  </p>
+  <p>
+    Additional provider processing locations, subprocessors, and who can
+    access stored information:
+    <span class="ph">{{PROVIDER_PROCESSING_AND_ACCESS_DETAILS}}</span>.
+  </p>
+  <p>
+    When you choose Google sign-in, the Android app also checks whether the
+    Supabase service is reachable. That check contains no profile data in
+    its request body.
+  </p>
+  <p>
+    Official information links and search links open when you select them.
+    The app does not attach its stored profile or travel records to those
+    links.
+  </p>
+
+  <h3>Analytics and notification components</h3>
+  <p>
+    The app's analytics event code does not send events in the release
+    version. No dedicated crash-reporting integration is present in the
+    reviewed app code.
+  </p>
+  <p>
+    Reminders are scheduled locally. However, the notification dependency
+    includes Google's Firebase Messaging component in Android builds.
+    Whether that component initializes or sends information in the final
+    Android build has not been verified. We therefore cannot confirm that it
+    makes no network requests.
+  </p>
+
+  <h3>Possible Android system backups</h3>
+  <p>
+    The app's Android backup settings have not been explicitly specified.
+    Depending on the final build and your device settings, local app
+    information may be included in a backup associated with your own Google
+    account. The actual scope has not been verified, including whether
+    sign-in credentials or diagnostic copies are included.
+  </p>
+
+  <h2>5. Security and its limits</h2>
+  <p>
+    Connections to our Supabase service use TLS to protect information
+    during transmission.
+  </p>
+  <p>
+    In the database, profile and travel information is stored as readable
+    values. The app does not add a separate layer of encryption to those
+    values. This describes how the app stores the data, not whether the
+    hosting provider encrypts its underlying disks or backups; those
+    settings have not been verified.
+  </p>
+  <p>
+    On the device, personal information, diagnostic copies, and sign-in
+    credentials use storage without encryption added by the app. We do not
+    represent these records as end-to-end encrypted.
+  </p>
+  <p>
+    <strong>Signing out does not remove your profile or travel records from
+    the device.</strong> They remain accessible within the app to someone
+    else using that device. Local content is not separated by account. A
+    later guest edit may cause retained information to be uploaded under the
+    guest identity.
+  </p>
+
+  <h2>6. How long information is kept</h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Information</th><th>Retention</th></tr>
+    <tr><td>Cloud profile and travel records</td><td><span class="ph">{{CLOUD_DATA_RETENTION}}</span></td></tr>
+    <tr><td>Anonymous accounts and their associated information, including accounts you can no longer access</td><td><span class="ph">{{UNLINKED_ACCOUNT_RETENTION}}</span></td></tr>
+    <tr><td>Authentication records, sign-in email records, and any provider logs</td><td><span class="ph">{{AUTH_EMAIL_AND_LOG_RETENTION}}</span></td></tr>
+    <tr><td>Server backups and copies remaining after deletion</td><td><span class="ph">{{SERVER_BACKUP_RETENTION_AND_DELETION}}</span></td></tr>
+  </table>
+  </div>
+  <p>
+    Signing out does not end local retention. Diagnostic copies have no
+    automatic expiry. The linked-account deletion process includes local
+    cleanup, subject to the verification limits below.
+  </p>
+  <p>
+    Ordinary synchronization can also delete live cloud records. Clearing a
+    current stay triggers removal of its cloud record. Synchronizing future
+    plans or stay history can remove cloud records that are absent from the
+    local collection. This does not establish when copies in server backups
+    are removed.
+  </p>
+
+  <h2>7. Deleting information</h2>
+
+  <h3>If you have linked an email or Google account</h3>
+  <p>Open <strong>Settings &rarr; Login and Security &rarr; Delete my account</strong>.</p>
+  <p>
+    The app first sends an account-deletion request to Supabase. If that
+    request fails, the app does not start local cleanup.
+  </p>
+  <p>
+    After a successful server response, the app is programmed to clear its
+    local profile and travel records, city clocks, simulations,
+    health-document selections, reminder settings, diagnostic copies, and
+    local sign-in information.
+  </p>
+  <p>
+    This local cleanup has been checked in source code and tests, but has
+    not been verified end to end on an Android device. The deployed server
+    deletion function and its removal of associated database records have
+    also not been verified. We cannot confirm complete removal from all
+    storage on that evidence alone.
+  </p>
+  <p>
+    Confirmed cloud-deletion scope and completion time:
+    <span class="ph">{{CLOUD_DELETION_SCOPE_AND_TIMING}}</span>.
+  </p>
+  <p>
+    If a data-restoration failure screen covers the app, you cannot reach
+    the in-app deletion controls while that screen remains open.
+  </p>
+  <p>
+    After account deletion, the app restarts its identity process. When a
+    connection is available, this may create a new anonymous account.
+  </p>
+
+  <h3>If you have never linked an email or Google account</h3>
+  <p>
+    You still have an anonymous server account, but there is currently no
+    in-app deletion entry for you. There is also no production-app route for
+    you to clear diagnostic copies.
+  </p>
+  <p>
+    Signing in to an existing account does not include a cleanup step for
+    the anonymous account you leave behind. Losing access to that anonymous
+    identity does not itself delete its server records.
+  </p>
+
+  <h3>Requests outside the app</h3>
+  <p>
+    You can submit a deletion request at
+    <a href="/delete">getnomadcheck.com/delete</a> without reinstalling the
+    app. That page explains what we can and cannot identify.
+  </p>
+
+  <h2>8. Your choices and rights</h2>
+  <p>
+    You can choose whether to link an email or Google account. Remaining a
+    guest does not prevent cloud uploads.
+  </p>
+  <p>
+    The app asks for notification permission when you use its reminder
+    controls. You can decline that permission. This choice does not control
+    profile or travel-data uploads.
+  </p>
+  <p>
+    Depending on the laws that apply to you and the circumstances, you may
+    have rights to access or obtain a copy of your personal information,
+    correct it, request deletion, restrict or object to processing, and
+    receive a portable copy. Where processing relies on consent, you may
+    have a right to withdraw that consent. You may also have a right to
+    complain to the relevant data-protection authority.
+  </p>
+  <p>
+    These legal rights are separate from the controls currently implemented
+    in the app. The deletion limitations described above remain relevant.
+  </p>
+  <p>
+    How to submit and verify a rights request, and the applicable response
+    times: <span class="ph">{{PRIVACY_RIGHTS_REQUEST_PROCESS}}</span>.
+  </p>
+  <p>Privacy contact: <span class="ph">{{CONTACT_EMAIL}}</span>.</p>
+
+  <h2>9. Children</h2>
+  <p>
+    Nomad Check is not designed for children. The app does not currently
+    have an age gate. Its under-30 assessment question is not an
+    age-verification process.
+  </p>
+
+  <h2>10. Policy changes</h2>
+  <p>
+    How we will notify you of changes, including when the revised policy
+    takes effect:
+    <span class="ph">{{PRIVACY_POLICY_CHANGE_NOTICE_PROCESS}}</span>.
+  </p>
+
+  <h2>11. Contact</h2>
+  <p>
+    Operator: <span class="ph">{{LEGAL_ENTITY}}</span><br>
+    Location: Taiwan<br>
+    Privacy contact: <span class="ph">{{CONTACT_EMAIL}}</span>
+  </p>
+
+  <footer class="site">
+    <a href="/">Home</a><a href="/terms">Terms</a><a href="/delete">Delete my data</a>
+  </footer>
+
+</div>
+</body>
+</html>
