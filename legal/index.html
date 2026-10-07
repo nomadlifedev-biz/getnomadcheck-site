@@ -6,36 +6,49 @@
 <title>Legal — Nomad Check</title>
 <style>
   * { box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-         margin: 0; padding: 20px 20px 72px; color: #2A2A2A; background: #FAF9F7; }
-  header.brand { max-width: 42rem; margin: 0 auto 18px; background: #FFFFFF;
-         border: 1px solid #E4DFD9; border-radius: 14px; padding: 14px 18px; }
-  header.brand a { font-weight: 700; color: #2F6B5E; text-decoration: none; font-size: 1.05rem; }
-  nav.crumb { max-width: 42rem; margin: 0 auto 6px; font-size: 0.95rem; }
+  body { margin: 0; background: #FAF9F7; color: #2A2A2A; font-size: 16px; line-height: 1.65;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+  .container { width: calc(100% - 40px); max-width: 768px; margin: 0 auto; }
+  header.site { display: flex; justify-content: space-between; align-items: center;
+         padding: 20px 0; border-bottom: 1px solid #E4DFD9; }
+  header.site .brand { font-size: 16px; font-weight: 700; color: #2F6B5E; text-decoration: none; }
+  header.site .nav-legal { font-size: 14px; font-weight: 500; color: #2F6B5E; text-decoration: none; }
+  header.site .nav-legal[aria-current="page"] { text-decoration: underline; }
+  nav.crumb { margin-top: 16px; font-size: 0.95rem; }
   nav.crumb a { color: #2F6B5E; }
-  main { max-width: 42rem; margin: 0 auto; line-height: 1.65; font-size: 17px; }
-  h1 { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-       font-size: 34px; line-height: 1.25; font-weight: 400; color: #2A2A2A; margin: 1em 0 0.5em; }
-  h1::after { content: ""; display: block; width: 48px; height: 2px; background: #2F6B5E; margin-top: 12px; }
+  main { padding-top: clamp(32px, 5vw, 48px); padding-bottom: 48px; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(32px, 5vw, 40px);
+       font-weight: 400; line-height: 1.18; letter-spacing: -0.02em; color: #2A2A2A; margin: 0 0 16px; }
   h2 { font-size: 1.2rem; line-height: 1.35; font-weight: 700; color: #2F6B5E; margin: 1.7em 0 0.5em; }
   h3 { font-size: 1.02rem; font-weight: 700; color: #2F6B5E; margin: 1.3em 0 0.4em; }
+  p.lede { color: #5B615D; margin: 0 0 12px; }
   ul, ol { padding-left: 1.4em; }
   li { margin: 0.35em 0; }
   table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.92rem; }
   th, td { border: 1px solid #E4DFD9; padding: 10px; text-align: left; vertical-align: top; }
   th { background: #F0EBE3; }
   a { color: #2F6B5E; text-decoration: underline; }
-  ul.cards { list-style: none; padding: 0; }
-  ul.cards li { margin: 10px 0; }
-  ul.cards a { display: block; background: #FFFFFF; border: 1px solid #E4DFD9;
-       border-radius: 14px; padding: 14px 18px; text-decoration: none; font-weight: 700; color: #2F6B5E; }
+  .cards { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+  a.card { display: flex; justify-content: space-between; align-items: center; gap: 16px;
+       padding: 18px 20px; background: #FFFFFF; border: 1px solid #E4DFD9; border-radius: 16px;
+       text-decoration: none; }
+  a.card .t { font-size: 16px; font-weight: 600; color: #2A2A2A; }
+  a.card .d { margin-top: 6px; font-size: 14px; line-height: 1.55; color: #5B615D; }
+  a.card .chev { font-family: Arial, sans-serif; font-size: 24px; color: #2F6B5E; flex-shrink: 0; }
+  footer.site { margin-top: 48px; padding: 24px 0 32px; border-top: 1px solid #E4DFD9;
+       font-size: 14px; line-height: 1.6; }
+  footer.site nav { display: flex; flex-wrap: wrap; column-gap: 20px; row-gap: 12px; }
+  footer.site a { color: #2F6B5E; text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 <body>
-<header class="brand"><a href="https://getnomadcheck.com/">Nomad Check</a></header>
+<div class="container">
+<header class="site"><a class="brand" href="/">Nomad Check</a><a class="nav-legal" href="/legal/" aria-current="page">Legal</a></header>
 <main>
 <h1>Nomad Check — Legal</h1>
-<ul class="cards"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li><li><a href="disclaimer.html">Legal Information Disclaimer</a></li><li><a href="sources.html">Information Sources and Review Method</a></li><li><a href="account-deletion.html">Account and Data Deletion</a></li><li><a href="support.html">Support and Contact</a></li></ul>
+<div class="cards"><a class="card" href="privacy.html"><span><span class="t">Privacy Policy</span><div class="d">How the app handles your personal information.</div></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a class="card" href="terms.html"><span><span class="t">Terms of Use</span><div class="d">Terms for using Nomad Check.</div></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a class="card" href="disclaimer.html"><span><span class="t">Legal Information Disclaimer</span><div class="d">The limits of the information provided by the app.</div></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a class="card" href="sources.html"><span><span class="t">Information Sources and Review Method</span><div class="d">Where information comes from and how it is reviewed.</div></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a class="card" href="account-deletion.html"><span><span class="t">Account and Data Deletion</span><div class="d">How to request deletion of your account and data.</div></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a class="card" href="support.html"><span><span class="t">Support and Contact</span><div class="d">How to contact Nomad Check for help.</div></span><span class="chev" aria-hidden="true">&rsaquo;</span></a></div>
 </main>
+<footer class="site"><nav><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/account-deletion">Delete my data</a></nav></footer>
+</div>
 </body>
 </html>

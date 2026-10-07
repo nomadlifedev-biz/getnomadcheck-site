@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
+<div class="container">
 
   <header class="site">
     <a class="brand" href="/">Nomad Check</a>
+    <a class="nav-legal" href="/legal/">Legal</a>
   </header>
 
-
+  <main>
   <h1>Nomad Check</h1>
   <p class="lede">
     Nomad Check is an Android app that helps people travelling between
@@ -27,22 +28,30 @@
   </p>
 
   <div class="cards">
-    <a href="/legal/privacy">
-      <div class="t">Privacy Policy</div>
-      <div class="d">What the app collects, where it goes, and how long it is kept.</div>
+    <a class="card" href="/legal/privacy">
+      <span><span class="t">Privacy Policy</span>
+      <div class="d">What the app collects, where it goes, and how long it is kept.</div></span>
+      <span class="chev" aria-hidden="true">&rsaquo;</span>
     </a>
-    <a href="/legal/terms">
-      <div class="t">Terms of Use</div>
-      <div class="d">What the service is, what it is not, and the limits of the information it provides.</div>
+    <a class="card" href="/legal/terms">
+      <span><span class="t">Terms of Use</span>
+      <div class="d">What the service is, what it is not, and the limits of the information it provides.</div></span>
+      <span class="chev" aria-hidden="true">&rsaquo;</span>
     </a>
-    <a href="/legal/account-deletion">
-      <div class="t">Delete your account and data</div>
-      <div class="d">Request deletion without reinstalling the app.</div>
+    <a class="card" href="/legal/account-deletion">
+      <span><span class="t">Delete your account and data</span>
+      <div class="d">Request deletion without reinstalling the app.</div></span>
+      <span class="chev" aria-hidden="true">&rsaquo;</span>
     </a>
   </div>
+  </main>
 
   <footer class="site">
-    <a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/account-deletion">Delete my data</a>
+    <nav>
+      <a href="/legal/privacy">Privacy</a>
+      <a href="/legal/terms">Terms</a>
+      <a href="/legal/account-deletion">Delete my data</a>
+    </nav>
   </footer>
 
 </div>
