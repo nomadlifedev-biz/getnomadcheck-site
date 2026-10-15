@@ -42,17 +42,19 @@ body {
 a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
 a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
 
-/* ── Header: on the page ground, a hairline under it, no card ── */
+/* ── Header: on the page ground, a hairline under it, no card.
+   Wordmark · anchors (the app's tab names) · the one CTA, on one row. The CTA
+   sits BESIDE the nav, not inside it: it is the page's action, not a place,
+   and that lets phones re-flow the three into two rows with a plain grid. ── */
 header.site { border-bottom: 1px solid var(--rule); }
 .header-row {
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px 24px;
+  display: flex; align-items: center; gap: 12px 24px;
   padding-top: 18px; padding-bottom: 18px;
 }
 .wordmark { font-size: 1.0625rem; font-weight: 700; color: var(--brand); text-decoration: none; }
-.site-nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 24px; font-size: 0.9375rem; }
-.site-nav a:not(.button) { color: var(--ink); text-decoration: none; padding: 6px 0; }
-.site-nav a:not(.button):hover { text-decoration: underline; }
+.site-nav { display: flex; align-items: center; gap: 0 24px; margin-left: auto; font-size: 0.9375rem; }
+.site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; }
+.site-nav a:hover { text-decoration: underline; }
 
 /* ── The one primary action: deep green capsule (the app's CTA shape) ── */
 .button {
@@ -64,11 +66,18 @@ header.site { border-bottom: 1px solid var(--rule); }
 }
 .button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 
-/* Phones: the short nav keeps its three anchors; the header copy of the CTA
-   steps aside because the hero's own CTA is on the first screen. */
+/* Phones (WEB-1b option A): row 1 = wordmark + CTA, row 2 = the three anchors
+   at a 44px touch height. The CTA is shown at every width — it is the page's
+   only one since the hero and closing CTAs left. */
 @media (max-width: 720px) {
-  .button-header { display: none; }
-  .site-nav { gap: 4px 20px; }
+  .header-row {
+    display: grid; grid-template-columns: 1fr auto;
+    grid-template-areas: "brand cta" "nav nav";
+    row-gap: 4px; padding-bottom: 6px;
+  }
+  .wordmark { grid-area: brand; }
+  .button-header { grid-area: cta; }
+  .site-nav { grid-area: nav; margin-left: 0; }
 }
 
 /* ── Hero: text-led single column ── */
@@ -82,7 +91,7 @@ h1 {
   margin: 0 0 20px;
   max-width: 20ch;
 }
-.hero-lede { color: var(--ink-2); max-width: 34rem; margin: 0 0 28px; }
+.hero-lede { color: var(--ink-2); max-width: 34rem; margin: 0; }
 
 /* ── One heading scale for every section below the hero ── */
 h2 {
@@ -112,15 +121,12 @@ p + p { margin-top: 12px; }
 .scenario-text { color: var(--ink-2); }
 
 /* ── Trust: quiet, but full-size text at full contrast. Separated by space
-   alone (one section gap), not a rule — the quietest boundary on the page. ── */
-.trust { padding-top: var(--section); }
+   alone (one section gap), not a rule — the quietest boundary on the page.
+   It is the last section: the same gap below it, then the footer's rule. ── */
+.trust { padding: var(--section) 0; }
 .trust h2 { margin-bottom: 16px; }
 .trust p { color: var(--ink-2); }
 .trust-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; }
-
-/* ── Closing line + the same CTA ── */
-.closing { padding: var(--section) 0; }
-.closing h2 { margin-bottom: 24px; max-width: 22ch; }
 
 /* ── Footer ── */
 footer.site { border-top: 1px solid var(--rule); font-size: 0.9375rem; }
