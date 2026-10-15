@@ -126,10 +126,25 @@ p + p { margin-top: 12px; }
 .trust { padding: var(--section) 0; }
 .trust h2 { margin-bottom: 16px; }
 .trust p { color: var(--ink-2); }
-.trust-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; }
-/* WEB-1c — each link is a 44px touch target; when they wrap, the row gap (8)
-   is the space between them. The section gap below is still .trust's own. */
-.trust-links a { display: inline-flex; align-items: center; min-height: 44px; }
+/* Row gap 20, not 8: each hit overlay overhangs its text box by ~10px above
+   and below, so wrapped rows need ≥20 between boxes or the second overlay
+   covers the first link's bottom (measured: its target shrank to 36px). */
+.trust-links { display: flex; flex-wrap: wrap; gap: 20px 24px; margin-top: 16px; }
+/* WEB-1c/WEB-1d — each link is a 44px touch target. ⚠️ The target is an
+   invisible ::after overlay, not a tall box: WEB-1c's min-height:44 centred
+   ~28px of text in a 44px box, so the VISIBLE text sat ~8px above the box's
+   bottom and the measured gap to the footer rule read 60/92 instead of the
+   48/80 token (all three engines agreed). The overlay adds hit area without
+   moving a pixel of layout, so the visible gap is .trust's padding alone. */
+.trust-links a { position: relative; }
+.trust-links a::after {
+  content: "";
+  position: absolute;
+  left: -6px; right: -6px;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
+}
 
 /* ── Footer ── */
 footer.site { border-top: 1px solid var(--rule); font-size: 0.9375rem; }
