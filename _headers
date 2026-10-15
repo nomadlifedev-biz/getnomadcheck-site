@@ -1,0 +1,5 @@
+# WEB-1c — the homepage stylesheet is revalidated on every load (unchanged →
+# 304), so a browser can never pair a new index.html with a cached old
+# style.css (the WEB-1b mismatch). Exact path: no other file is affected.
+/style.css
+  Cache-Control: no-cache

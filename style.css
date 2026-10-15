@@ -127,6 +127,9 @@ p + p { margin-top: 12px; }
 .trust h2 { margin-bottom: 16px; }
 .trust p { color: var(--ink-2); }
 .trust-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; }
+/* WEB-1c — each link is a 44px touch target; when they wrap, the row gap (8)
+   is the space between them. The section gap below is still .trust's own. */
+.trust-links a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ── Footer ── */
 footer.site { border-top: 1px solid var(--rule); font-size: 0.9375rem; }
