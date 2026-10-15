@@ -1,4 +1,4 @@
-/* Nomad Check — homepage (WEB-1).
+/* Nomad Check — homepage (WEB-1, illustrated in WEB-2).
    Loaded by index.html ONLY: every /legal/ page carries its own inline <style>,
    so nothing here can change how a legal page renders.
    Plain CSS, no build step, light only, zero JavaScript, no external resources.
@@ -15,14 +15,19 @@
   --max: 1120px;
   --gutter: 32px;
   --section: 80px;
-  --hero-y: 72px;
+  --hero-y: 80px;
+  /* WEB-2 — half the space between two scenarios. Each row carries it above
+     and below its own content, so the distance between neighbours is 2 × this
+     plus the hairline — one layer per side, never a margin on top of it. */
+  --row: 52px;
+  --col-gap: 64px;
 
   --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --serif: Georgia, "Times New Roman", serif;
 }
 
 @media (max-width: 720px) {
-  :root { --gutter: 20px; --section: 48px; --hero-y: 40px; }
+  :root { --gutter: 20px; --section: 48px; --hero-y: 48px; --row: 28px; }
 }
 
 * { box-sizing: border-box; }
@@ -43,7 +48,7 @@ a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px;
 a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
 
 /* ── Header: on the page ground, a hairline under it, no card.
-   Wordmark · anchors (the app's tab names) · the one CTA, on one row. The CTA
+   Brand · anchors (the app's tab names) · the one CTA, on one row. The CTA
    sits BESIDE the nav, not inside it: it is the page's action, not a place,
    and that lets phones re-flow the three into two rows with a plain grid. ── */
 header.site { border-bottom: 1px solid var(--rule); }
@@ -51,7 +56,13 @@ header.site { border-bottom: 1px solid var(--rule); }
   display: flex; align-items: center; gap: 12px 24px;
   padding-top: 18px; padding-bottom: 18px;
 }
-.wordmark { font-size: 1.0625rem; font-weight: 700; color: var(--brand); text-decoration: none; }
+/* WEB-2 — the app icon (IC-1, assets/brand/icon-1024.png, corners #FAF9F7)
+   beside the wordmark. The name stays real HTML text; the mark is alt="". */
+.wordmark {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+  font-size: 1.0625rem; font-weight: 700; color: var(--brand); text-decoration: none;
+}
+.wordmark-mark { display: block; width: 40px; height: 40px; flex-shrink: 0; }
 .site-nav { display: flex; align-items: center; gap: 0 24px; margin-left: auto; font-size: 0.9375rem; }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; }
 .site-nav a:hover { text-decoration: underline; }
@@ -66,7 +77,7 @@ header.site { border-bottom: 1px solid var(--rule); }
 }
 .button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 
-/* Phones (WEB-1b option A): row 1 = wordmark + CTA, row 2 = the three anchors
+/* Phones (WEB-1b option A): row 1 = brand + CTA, row 2 = the three anchors
    at a 44px touch height. The CTA is shown at every width — it is the page's
    only one since the hero and closing CTAs left. */
 @media (max-width: 720px) {
@@ -75,28 +86,58 @@ header.site { border-bottom: 1px solid var(--rule); }
     grid-template-areas: "brand cta" "nav nav";
     row-gap: 4px; padding-bottom: 6px;
   }
-  .wordmark { grid-area: brand; }
+  .wordmark { grid-area: brand; gap: 6px; }
+  /* WEB-2 — with the mark beside it, the wordmark wrapped to two lines at 375
+     (measured: mark 40 + 10 + name 114 + gap 24 + CTA 176 = 364 > 335). A 28px
+     mark, 6px inside and an 8px column gap make it 332: one line at 375. The
+     CTA is untouched. ⚠️ Below ~372px (e.g. 360) the name still wraps. */
+  .header-row { column-gap: 8px; }
+  .wordmark-mark { width: 28px; height: 28px; }
   .button-header { grid-area: cta; }
   .site-nav { grid-area: nav; margin-left: 0; }
 }
 
-/* ── Hero: text-led single column ── */
+/* ── Illustrations (WEB-2) ──
+   ⚠️ NEVER WIDER THAN 1x: each figure's max-width is its file's own pixel
+   width (hero 445, stay 409, plan 416, time zones 353 — cropped from the
+   916px reference). Where a column is wider, the space stays empty; the image
+   is never stretched to fill it. When the ≥1000px originals arrive (WEB-2b),
+   swap the files (same names) and raise these four caps.
+   ⚠️ NO mix-blend-mode. The paper is normalised to #FAF9F7 in the files
+   themselves (lossless WebP, so it survives encoding exactly). Multiply was
+   tried first and measured worse: paper (251,249,247) × page (250,249,247)
+   darkens the whole rectangle — edge ΔE76 ≈ 2.5–2.7 in Chromium and WebKit,
+   a visible box. A normalised file under multiply would darken the same way. */
+.art { margin: 0; width: 100%; justify-self: center; }
+.art img { display: block; width: 100%; height: auto; }
+.art-hero { max-width: 445px; }
+.art-stay { max-width: 409px; }
+.art-plan { max-width: 416px; }
+.art-time-zones { max-width: 353px; }
+
+/* ── Hero: text-led, the drawing beside it (stacked under it on phones) ── */
 .hero { padding: var(--hero-y) 0; }
+.hero-row {
+  display: grid;
+  grid-template-columns: minmax(0, 50fr) minmax(0, 42fr);
+  gap: 24px var(--col-gap);
+  align-items: center;
+}
 h1 {
   font-family: var(--serif);
   font-size: clamp(2.375rem, 4.5vw, 3.75rem);   /* 38 → 60px */
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.01em;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   max-width: 20ch;
 }
-.hero-lede { color: var(--ink-2); max-width: 34rem; margin: 0; }
+.hero-lede { color: var(--ink-2); font-size: 1.125rem; line-height: 1.6; max-width: 34rem; margin: 0; }
 
 /* ── One heading scale for every section below the hero ── */
 h2 {
   font-family: var(--sans);
-  font-size: clamp(1.75rem, 2.4vw, 2.125rem);   /* 28 → 34px */
+  font-size: clamp(1.875rem, 2.4vw, 2.125rem);   /* 30 → 34px */
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -105,31 +146,43 @@ h2 {
 p { margin: 0; max-width: 36rem; }   /* ≈ 55–65 characters at 17px */
 p + p { margin-top: 12px; }
 
-/* ── Scenarios: rhythm from type and space, a hairline between — no cards.
-   The rule sits on the inner row, so it spans the text column, not the gutter.
-   One layer per distance: the hero's bottom padding is the space above the
-   first scenario; the rows' own padding is the space around each rule. ── */
+/* ── Scenarios: copy and drawing side by side, alternating; a hairline
+   between — no cards. The rule sits on the inner row, so it spans the text
+   column, not the gutter. One layer per distance: the hero's bottom padding
+   is the space above the first scenario; each row's own --row padding is the
+   space on either side of a rule. DOM order is copy → drawing (the phone
+   order); desktop places the drawing left for Stay and Time zones. ── */
 .scenario + .scenario .scenario-row { border-top: 1px solid var(--rule); }
 .scenario-row {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-  gap: 16px 48px;
-  padding-top: 40px; padding-bottom: 40px;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas: "copy art";
+  gap: 24px var(--col-gap);
+  align-items: center;
+  padding-top: var(--row); padding-bottom: var(--row);
 }
+.scenario-art-left .scenario-row {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-areas: "art copy";
+}
+.scenario-copy { grid-area: copy; }
+.scenario-row .art { grid-area: art; }
 .scenario:first-child .scenario-row { padding-top: 0; }
 .scenario:last-child .scenario-row { padding-bottom: 0; }
+.scenario h2 { margin-bottom: 16px; }
 .scenario-text { color: var(--ink-2); }
 
 /* ── Trust: quiet, but full-size text at full contrast. Separated by space
-   alone (one section gap), not a rule — the quietest boundary on the page.
-   It is the last section: the same gap below it, then the footer's rule. ── */
-.trust { padding: var(--section) 0; }
+   alone, not a rule — the quietest boundary on the page. Centred in a 680px
+   column. It is the last section: then the footer's rule. ── */
+.trust { padding: calc(2 * var(--row)) 0 var(--section); }
+.trust-inner { max-width: 680px; margin: 0 auto; text-align: center; }
 .trust h2 { margin-bottom: 16px; }
-.trust p { color: var(--ink-2); }
+.trust p { color: var(--ink-2); max-width: none; }
 /* Row gap 20, not 8: each hit overlay overhangs its text box by ~10px above
    and below, so wrapped rows need ≥20 between boxes or the second overlay
    covers the first link's bottom (measured: its target shrank to 36px). */
-.trust-links { display: flex; flex-wrap: wrap; gap: 20px 24px; margin-top: 16px; }
+.trust-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 24px; margin-top: 16px; }
 /* WEB-1c/WEB-1d — each link is a 44px touch target. ⚠️ The target is an
    invisible ::after overlay, not a tall box: WEB-1c's min-height:44 centred
    ~28px of text in a 44px box, so the VISIBLE text sat ~8px above the box's
@@ -151,6 +204,16 @@ footer.site { border-top: 1px solid var(--rule); font-size: 0.9375rem; }
 footer.site .wrap { padding-top: 28px; padding-bottom: 36px; }
 footer.site nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 
+/* ── Phones: one column, heading → text → drawing, drawings centred at
+   240–300px (never wider than the column, never above 1x). ── */
 @media (max-width: 720px) {
-  .scenario-row { grid-template-columns: minmax(0, 1fr); padding-top: 28px; padding-bottom: 28px; }
+  .hero-row,
+  .scenario-row,
+  .scenario-art-left .scenario-row {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "copy" "art";
+  }
+  .hero-copy { grid-area: copy; }
+  .hero-row .art { grid-area: art; }
+  .art-hero, .art-stay, .art-plan, .art-time-zones { max-width: 300px; }
 }
